@@ -14,13 +14,14 @@ import java.util.ArrayList;
 import static org.testng.Assert.assertEquals;
 
 public class NewPetTest {
-    String url = "http://192.168.99.100:8080/api/v3";
+    String url = "http://3.126.83.64:9000";
 
     @BeforeMethod
     void login() {
         RestAssured.baseURI = url;
-        RequestSpecification httpRequest = RestAssured.given();
-        RestAssured.given()
+        RestAssured
+                .given()
+                .basePath("/api/v3")
                 .auth()
                 .basic("annatest", "annatest");
     }
@@ -30,6 +31,7 @@ public class NewPetTest {
         RestAssured.baseURI=url;
         Response response = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type","application/json")
                 .delete("/pet/1");
     }
@@ -61,6 +63,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -75,6 +78,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -109,6 +113,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -124,6 +129,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -159,6 +165,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -194,6 +201,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -228,6 +236,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -263,6 +272,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -297,6 +307,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -332,6 +343,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -369,6 +381,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -404,6 +417,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -443,6 +457,7 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
@@ -478,11 +493,12 @@ public class NewPetTest {
         RestAssured.baseURI = url;
         RequestSpecification request = RestAssured
                 .given()
+                .basePath("/api/v3")
                 .header("Content-Type", "application/json")
                 .body(pet.toJSONString());
         int statusCode = request
                 .post("/pet")
                 .getStatusCode();
-        Assert.assertEquals(statusCode, 405);
+        Assert.assertEquals(statusCode, 200);
     }
 }
