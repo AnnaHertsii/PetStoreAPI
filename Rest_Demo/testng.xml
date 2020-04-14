@@ -1,5 +1,5 @@
 <suite name = "Api">
-    <test name = "ApiLoginTest">
+    <test name = "ApiPetTest">
         <classes>
             <class name="com.petstore.test.pet.NewPetTest">
             </class>
