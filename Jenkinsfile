@@ -5,7 +5,7 @@ pipeline {
       stage('Run docker') {
          agent { label 'slave-docker' }
          steps {
-            sh "sudo docker start e17503094443"
+            sh "sudo docker start swaggerapi-petstore3"
          }
       }
       stage('Run tests') {
