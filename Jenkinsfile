@@ -15,6 +15,9 @@ pipeline {
              script {
                 git 'https://github.com/AnnaHertsii/PetStoreAPI.git'
                 sh "mvn -f /home/ubuntu/workspace/Pipeline/Rest_Demo/pom.xml clean test"
+                withSonarQubeEnv('SonarQube'){
+                   sh "mvn sonar:sonar"
+                }
             }
         }
       }
